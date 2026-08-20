@@ -1,6 +1,6 @@
 // website name is ai.google.dev
 // this code is copy from documentation of ai.google.dev
-// you have to install @google/generative-ai package to use this code. You can install it by running the command npm install @google/genai
+// you have to install @google/generative-ai package to use this code. You can install it by running the command npm install @google/generative-ai
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
