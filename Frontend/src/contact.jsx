@@ -1,11 +1,8 @@
 import React from 'react'
 import "./App.css"
 
-const Contact = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault()
-    }
 
+{
     return (
         <div className="page-shell contact-page">
             <div className="page-header">
