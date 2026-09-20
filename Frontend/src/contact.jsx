@@ -2,7 +2,7 @@ import React from 'react'
 import "./App.css"
 
 
-{
+ const Contact = () => {
     return (
         <div className="page-shell contact-page">
             <div className="page-header">
