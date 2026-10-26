@@ -1,0 +1,15 @@
+{
+  "installCommand": "npm install && npm install --prefix Frontend",
+  "buildCommand": "npm run build --prefix Frontend",
+  "outputDirectory": "Frontend/dist",
+  "rewrites": [
+    {
+      "source": "/about",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/index.html"
+    }
+  ]
+}

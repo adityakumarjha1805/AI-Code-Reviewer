@@ -27,7 +27,7 @@ const Home = () => {
     setError(``)
 
     try {
-      const response = await axios.post('http://localhost:3000/ai/get-review', { prompt: code })
+      const response = await axios.post('/api/ai/get-review', { prompt: code })
       setReview(response.data)
     } catch (requestError) {
       setError(requestError.response?.data?.message || 'Unable to generate a review. Please try again.')

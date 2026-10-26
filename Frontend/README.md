@@ -68,68 +68,50 @@ AI-Code-Reviewer/
 
 ## ⚙️ Installation
 
-### 1. Clone the Repository
+Install the backend and frontend dependencies from the repository root:
 
 ```bash
-git clone https://github.com/your-username/ai-code-reviewer.git
-```
-
-### 2. Navigate to the Project
-
-```bash
-cd ai-code-reviewer
-```
-
-### 3. Install Frontend Dependencies
-
-```bash
-cd client
 npm install
+npm install --prefix Frontend
 ```
 
-### 4. Install Backend Dependencies
-
-Open another terminal:
+Create a root `.env` file for local backend development:
 
 ```bash
-cd server
-npm install
+GOOGLE_GEMINI_KEY=your_gemini_api_key
 ```
 
-## 🔑 Environment Variables
-
-Create a `.env` file inside the `server` folder.
-
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-AI_API_KEY=your_ai_api_key
-JWT_SECRET=your_jwt_secret
-```
-
-> Never upload your `.env` file or API keys to GitHub.
-
-## ▶️ Run the Application
-
-### Start Backend
+Start the backend and frontend in separate terminals:
 
 ```bash
-cd server
 npm start
 ```
 
-### Start Frontend
-
 ```bash
-cd client
+cd Frontend
 npm run dev
 ```
 
-The application will be available at:
+The frontend is available at `http://localhost:5173`; its `/api` requests are
+proxied to the local backend on port 3000.
 
-```text
-http://localhost:5173
-```
+## 🚀 Deploy to Vercel
+
+This repository is configured to deploy the Vite frontend and Express API
+together as one Vercel project.
+
+1. Import the repository into Vercel and keep the **Root Directory** set to
+   the repository root (not `Frontend`).
+2. Add the `GOOGLE_GEMINI_KEY` environment variable in the Vercel project
+   settings for each environment you use (Production, Preview, and Development).
+3. Deploy. The checked-in `vercel.json` installs both packages, builds
+   `Frontend`, publishes `Frontend/dist`, and routes `/api/*` to the serverless
+   Express app. Client-side routes such as `/about` and `/contact` fall back to
+   the SPA entry point.
+
+The Gemini key must be configured in Vercel; it is only read by the backend
+and must not use a `VITE_` prefix. Keep local `.env` files out of source
+control.
 
 ## 🔄 How It Works
 
